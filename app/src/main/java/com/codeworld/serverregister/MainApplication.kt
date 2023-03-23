@@ -1,7 +1,9 @@
-package com.codeworld.serverregister.base
+package com.codeworld.serverregister
 
 import android.app.Application
 import dagger.hilt.android.HiltAndroidApp
 
 @HiltAndroidApp
-class MainApplication: Application()
+public class MainApplication: Application() {
+
+}

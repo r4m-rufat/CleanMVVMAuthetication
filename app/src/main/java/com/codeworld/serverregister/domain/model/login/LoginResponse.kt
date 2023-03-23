@@ -1,4 +1,6 @@
 package com.codeworld.serverregister.domain.model.login
 
-class LoginResponse {
-}
+data class LoginResponse(
+    val success: String,
+    val token: String
+)
