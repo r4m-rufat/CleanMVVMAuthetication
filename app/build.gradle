@@ -17,6 +17,8 @@ android {
         versionName "1.0"
 
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+
+        buildConfigField "String", "BASE_URL", "\"https://mobile.test-danit.com/api/\""
     }
 
     buildTypes {
@@ -79,8 +81,9 @@ dependencies {
     // Annotation processor
     kapt "com.google.dagger:hilt-android-compiler:$hilt_version"
 
-    implementation 'io.reactivex.rxjava3:rxandroid:3.0.2'
-    implementation 'io.reactivex.rxjava3:rxjava:3.1.6'
+    implementation 'io.reactivex.rxjava2:rxandroid:2.1.1'
+    implementation 'io.reactivex.rxjava2:rxjava:2.2.10'
+    implementation 'com.squareup.retrofit2:adapter-rxjava2:2.9.0'
 
 
 }

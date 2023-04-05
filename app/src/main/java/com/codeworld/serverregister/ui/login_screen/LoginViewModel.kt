@@ -6,11 +6,15 @@ import androidx.lifecycle.ViewModel
 import com.codeworld.serverregister.R
 import com.codeworld.serverregister.common.isValidPassword
 import com.codeworld.serverregister.common.isValidUsername
+import com.codeworld.serverregister.domain.repository.LoginRepository
+import com.codeworld.serverregister.domain.use_case.LoginUseCase
 import dagger.hilt.android.lifecycle.HiltViewModel
 import javax.inject.Inject
 
 @HiltViewModel
-class LoginViewModel @Inject constructor(): ViewModel() {
+class LoginViewModel @Inject constructor(
+    loginUseCase: LoginUseCase
+): ViewModel() {
 
     private val _loginFormState = MutableLiveData<LoginFormState>()
     val loginFormState: LiveData<LoginFormState> = _loginFormState

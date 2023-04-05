@@ -10,17 +10,15 @@ import androidx.lifecycle.ViewModelProvider
 import androidx.viewbinding.ViewBinding
 import dagger.hilt.android.AndroidEntryPoint
 
-abstract class BaseFragment<VB: ViewBinding, VM: ViewModel>: Fragment() {
+abstract class BaseFragment<VB: ViewBinding>: Fragment() {
 
     private var _binding: VB? = null
     protected val binding
         get() = _binding as VB
-    protected lateinit var viewModel: VM
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         _binding = getViewBinding()
-        viewModel = ViewModelProvider(this)[getViewModel()]
     }
 
     override fun onCreateView(
@@ -33,7 +31,7 @@ abstract class BaseFragment<VB: ViewBinding, VM: ViewModel>: Fragment() {
 
     }
 
-    protected abstract fun getViewModel(): Class<VM>
+//    protected abstract fun getViewModel(): Class<VM>
 
     protected abstract fun getViewBinding(): VB
 

@@ -8,12 +8,16 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.viewModels
+import androidx.lifecycle.ViewModelProvider
 import com.codeworld.serverregister.R
 import com.codeworld.serverregister.base.BaseFragment
 import com.codeworld.serverregister.databinding.FragmentLoginBinding
+import com.codeworld.serverregister.ui.register_screen.RegisterViewModel
 import dagger.hilt.android.AndroidEntryPoint
 
-class LoginFragment : BaseFragment<FragmentLoginBinding, LoginViewModel>() {
+class LoginFragment : BaseFragment<FragmentLoginBinding>() {
+
+    private lateinit var viewModel: LoginViewModel
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -27,6 +31,7 @@ class LoginFragment : BaseFragment<FragmentLoginBinding, LoginViewModel>() {
         savedInstanceState: Bundle?
     ): View {
 
+        viewModel = ViewModelProvider(this)[LoginViewModel::class.java]
         editTextWatcher()
         observeLoginStateChange()
 
@@ -79,8 +84,6 @@ class LoginFragment : BaseFragment<FragmentLoginBinding, LoginViewModel>() {
         }
 
     }
-
-    override fun getViewModel() = LoginViewModel::class.java
 
     override fun getViewBinding() = FragmentLoginBinding.inflate(layoutInflater)
 
